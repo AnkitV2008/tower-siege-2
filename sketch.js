@@ -19,7 +19,7 @@ function setup() {
   Engine.run(engine);
   ground = new Ground();
   stand1 = new Stand(390,300,250,10);
-  stand2 = new Stand(700,200,200,10);
+  stand2 = new Stand(700,250,200,10);
  
   //level one
   block1 = new Block(300,275,30,40);
@@ -62,7 +62,6 @@ function setup() {
   World.add(world,ball);
 
   slingshot = new SlingShot(this.ball,{x:100,y:200});
-
 }
 function draw() {
   background(56,44,44); 
@@ -73,7 +72,6 @@ function draw() {
   fill("lightyellow");
   text("[Drag the Hexagon Stone and Release it, to launch it towards the blocks]",30,30);
   text("[Press Space Key to play again]",100,70);
-
 
   ground.display();
   stand1.display();
@@ -100,7 +98,7 @@ function draw() {
   block15.display();
   fill("grey");
   block16.display();
-  fill("skyblue");
+ fill("skyblue");
   blocks1.display();
   blocks2.display();
   blocks3.display();
@@ -109,7 +107,7 @@ function draw() {
   fill("turquoise");
   blocks6.display();
   blocks7.display();
-  blocks8.display();
+  blocks8.display();8
   fill("pink")
   blocks9.display();
   fill("gold");
@@ -126,6 +124,7 @@ function mouseReleased(){
 }
 function keyPressed(){
   if(keyCode === 32){
+    Matter.Body.setPosition(this.ball,{x:200,y:100});
       slingshot.attach(this.ball);
   }
 }
